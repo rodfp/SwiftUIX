@@ -7,7 +7,7 @@ import SwiftUI
 
 #if os(iOS) || targetEnvironment(macCatalyst)
 public struct ListSeparatorStyleNoneModifier: ViewModifier {
-    @inlinable
+    // @inlinable
     public func body(content: Content) -> some View {
         content.onAppear {
             UITableView.appearance().separatorStyle = .none
@@ -16,7 +16,7 @@ public struct ListSeparatorStyleNoneModifier: ViewModifier {
         }
     }
     
-    @usableFromInline
+    // @usableFromInline
     init() {
         
     }
@@ -24,7 +24,7 @@ public struct ListSeparatorStyleNoneModifier: ViewModifier {
 
 extension View {
     @available(iOS, introduced: 13.4, deprecated: 14.0, message: "This no longer works on iOS 14.")
-    @inlinable
+    // @inlinable
     public func listSeparatorStyleNone() -> some View {
         modifier(ListSeparatorStyleNoneModifier())
     }

@@ -9,20 +9,20 @@ import SwiftUI
 import UIKit
 
 /// A modifier that can be applied to a view, exposing access to the parent `UIViewController`.
-@usableFromInline
+// @usableFromInline
 struct AppKitOrUIKitViewControllerConfigurator: UIViewControllerRepresentable {
-    @usableFromInline
+    // @usableFromInline
     struct Configuration {
-        @usableFromInline
+        // @usableFromInline
         var hidesBottomBarWhenPushed: Bool?
         
-        @usableFromInline
+        // @usableFromInline
         init() {
             
         }
     }
     
-    @usableFromInline
+    // @usableFromInline
     class UIViewControllerType: UIViewController {
         var configuration: Configuration {
             didSet {
@@ -47,25 +47,25 @@ struct AppKitOrUIKitViewControllerConfigurator: UIViewControllerRepresentable {
         }
     }
     
-    @usableFromInline
+    // @usableFromInline
     var configuration: Configuration
     
-    @usableFromInline
+    // @usableFromInline
     init(configuration: Configuration = .init()) {
         self.configuration = configuration
     }
     
-    @usableFromInline
+    // @usableFromInline
     func makeUIViewController(context: Context) -> UIViewControllerType {
         .init(configuration: configuration)
     }
     
-    @usableFromInline
+    // @usableFromInline
     func updateUIViewController(_ viewController: UIViewControllerType, context: Context) {
         viewController.configuration = configuration
     }
     
-    @usableFromInline
+    // @usableFromInline
     func configure(_ transform: (inout Configuration) -> Void) -> Self {
         then({ transform(&$0.configuration) })
     }
@@ -75,7 +75,7 @@ struct AppKitOrUIKitViewControllerConfigurator: UIViewControllerRepresentable {
 
 extension UIViewController {
     /// Configures this view controller with a given configuration.
-    @inlinable
+    // @inlinable
     func configure(with configuration: AppKitOrUIKitViewControllerConfigurator.Configuration) {
         #if os(iOS) || targetEnvironment(macCatalyst)
         if let newValue = configuration.hidesBottomBarWhenPushed {
@@ -88,7 +88,7 @@ extension UIViewController {
 
 extension View {
     /// Configures this view's parent `UIViewController`.
-    @inlinable
+    // @inlinable
     func configureUIViewController(
         _ transform: (inout AppKitOrUIKitViewControllerConfigurator.Configuration) -> Void
     ) -> some View {

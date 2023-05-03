@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 14.0, macOS 11.0, *)
 @available(tvOS, unavailable)
 @available(watchOS, unavailable)
-@usableFromInline
+// @usableFromInline
 struct PerformActionOnKeyboardShortcut: ViewModifier {
     /// This is needed to work around a bug in `View/keyboardShort(_:)`
     private class ActionTrampoline {
@@ -26,7 +26,7 @@ struct PerformActionOnKeyboardShortcut: ViewModifier {
     
     @State private var actionTrampoline = ActionTrampoline()
     
-    @usableFromInline
+    // @usableFromInline
     @available(tvOS, unavailable)
     @available(watchOS, unavailable)
     init(shortcut: KeyboardShortcut, action: @escaping () -> ()) {
@@ -37,7 +37,7 @@ struct PerformActionOnKeyboardShortcut: ViewModifier {
     @available(iOS 14.0, OSX 10.16, tvOS 14.0, *)
     @available(tvOS, unavailable)
     @available(watchOS, unavailable)
-    @usableFromInline
+    // @usableFromInline
     func body(content: Content) -> some View {
         content.background {
             ZStack {
@@ -63,7 +63,7 @@ extension View {
     @available(iOS 14.0, macOS 11.0, *)
     @available(tvOS, unavailable)
     @available(watchOS, unavailable)
-    @inlinable
+    // @inlinable
     public func onKeyboardShortcut(
         _ shortcut: KeyboardShortcut,
         perform action: @escaping () -> Void
@@ -75,7 +75,7 @@ extension View {
     @available(iOS 14.0, macOS 11.0, *)
     @available(tvOS, unavailable)
     @available(watchOS, unavailable)
-    @inlinable
+    // @inlinable
     public func onKeyboardShortcut(
         _ key: KeyEquivalent,
         modifiers: EventModifiers = [],
@@ -88,7 +88,7 @@ extension View {
     @available(iOS 14.0, macOS 11.0, *)
     @available(tvOS, unavailable)
     @available(watchOS, unavailable)
-    @inlinable
+    // @inlinable
     public func onKeyboardShortcut<Action: DynamicAction>(
         _ key: KeyEquivalent,
         modifiers: EventModifiers = [],
@@ -143,7 +143,7 @@ extension View {
     @available(iOS 14.0, macOS 11.0, *)
     @available(tvOS, unavailable)
     @available(watchOS, unavailable)
-    @inlinable
+    // @inlinable
     public func onKeyboardShortcut(
         _ shortcut: KeyEquivalent,
         when predicate: Bool,

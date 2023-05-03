@@ -9,14 +9,14 @@ import SwiftUI
 ///
 /// The description is composed of two things - the view's name and the view's frame.
 public struct _NamedViewDescription: Hashable {
-    @usableFromInline
+    // @usableFromInline
     let name: AnyHashable
-    @usableFromInline
+    // @usableFromInline
     let id: AnyHashable?
-    @usableFromInline
+    // @usableFromInline
     let globalBounds: CGRect
     
-    @usableFromInline
+    // @usableFromInline
     init(
         name: AnyHashable,
         id: AnyHashable?,
@@ -36,7 +36,7 @@ public struct _NamedViewDescription: Hashable {
         hasher.combine(globalBounds.size.height)
     }
     
-    @inlinable
+    // @inlinable
     public static func == (lhs: Self, rhs: Self) -> Bool {
         guard lhs.name == rhs.name else {
             return false

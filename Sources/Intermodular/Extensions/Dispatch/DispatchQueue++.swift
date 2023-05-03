@@ -7,7 +7,7 @@ import Foundation
 import Swift
 
 extension DispatchQueue {
-    @usableFromInline
+    // @usableFromInline
     static func asyncOnMainIfNecessary(execute work: @escaping () -> ()) {
         if Thread.isMainThread {
             work()

@@ -9,17 +9,17 @@ import SwiftUI
 
 /// A view modifier that enables draggability.
 public struct DraggabilityViewModifier: ViewModifier {
-    @usableFromInline
+    // @usableFromInline
     let minimumDistance: CGFloat
     
-    @usableFromInline
+    // @usableFromInline
     @State var offset = CGPoint(x: 0, y: 0)
     
     public init(minimumDistance: CGFloat = 0) {
         self.minimumDistance = minimumDistance
     }
     
-    @inlinable
+    // @inlinable
     public func body(content: Content) -> some View {
         content
             .gesture(
@@ -35,7 +35,7 @@ public struct DraggabilityViewModifier: ViewModifier {
 // MARK: - Helpers
 
 extension View {
-    @inlinable
+    // @inlinable
     public func draggable() -> some View {
         return modifier(DraggabilityViewModifier())
     }

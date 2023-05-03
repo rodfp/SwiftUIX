@@ -11,12 +11,12 @@
 private struct _OnHoverViewModifier: ViewModifier {
     public var onHover: (Bool) -> Void
     
-    @inlinable
+    // @inlinable
     public init(onHover: @escaping (Bool) -> Void) {
         self.onHover = onHover
     }
     
-    @inlinable
+    // @inlinable
     public func body(content: Content) -> some View {
         if #available(iOS 13.4, iOSApplicationExtension 14.0, macCatalystApplicationExtension 14.0, *) {
             return content.onHover(perform: onHover)

@@ -7,12 +7,12 @@
 import SwiftUI
 
 extension AppKitOrUIKitView {
-    @usableFromInline
+    // @usableFromInline
     var isHorizontalContentHuggingPriorityHigh: Bool {
         contentHuggingPriority(for: .horizontal) == .defaultHigh
     }
     
-    @usableFromInline
+    // @usableFromInline
     var isVerticalContentHuggingPriorityHigh: Bool {
         contentHuggingPriority(for: .vertical) == .defaultHigh
     }

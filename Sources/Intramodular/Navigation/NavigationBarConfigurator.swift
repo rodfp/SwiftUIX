@@ -7,9 +7,9 @@ import SwiftUI
 
 #if os(iOS) || os(tvOS) || targetEnvironment(macCatalyst)
 
-@usableFromInline
+// @usableFromInline
 struct NavigationBarConfigurator<Leading: View, Center: View, Trailing: View, LargeTrailing: View>: UIViewControllerRepresentable {
-    @usableFromInline
+    // @usableFromInline
     class UIViewControllerType: UIViewController {
         weak var navigationBarLargeTitleView: UIView? = nil
         
@@ -203,7 +203,7 @@ struct NavigationBarConfigurator<Leading: View, Center: View, Trailing: View, La
     let largeTrailingAlignment: VerticalAlignment?
     let displayMode: NavigationBarItem.TitleDisplayMode?
     
-    @usableFromInline
+    // @usableFromInline
     init(
         leading: Leading,
         center: Center,
@@ -220,12 +220,12 @@ struct NavigationBarConfigurator<Leading: View, Center: View, Trailing: View, La
         self.displayMode = displayMode
     }
     
-    @usableFromInline
+    // @usableFromInline
     func makeUIViewController(context: Context) -> UIViewControllerType {
         .init()
     }
     
-    @usableFromInline
+    // @usableFromInline
     func updateUIViewController(_ viewController: UIViewControllerType, context: Context) {
         viewController.displayMode = displayMode
         viewController.leading = leading
@@ -237,7 +237,7 @@ struct NavigationBarConfigurator<Leading: View, Center: View, Trailing: View, La
         viewController.updateNavigationBar(viewController: viewController.navigationController?.topViewController)
     }
     
-    @usableFromInline
+    // @usableFromInline
     static func dismantleUIViewController(_ uiViewController: UIViewControllerType, coordinator: Coordinator) {
         uiViewController.largeTrailingAlignment = nil
         
@@ -246,7 +246,7 @@ struct NavigationBarConfigurator<Leading: View, Center: View, Trailing: View, La
 }
 
 extension View {
-    @inlinable
+    // @inlinable
     public func navigationBarItems<Leading: View, Center: View, Trailing: View>(
         leading: Leading,
         center: Center,
@@ -264,7 +264,7 @@ extension View {
         )
     }
         
-    @inlinable
+    // @inlinable
     public func navigationBarItems<Leading: View, Center: View>(
         leading: Leading,
         center: Center,
@@ -278,7 +278,7 @@ extension View {
         )
     }
     
-    @inlinable
+    // @inlinable
     public func navigationBarTitleView<V: View>(
         _ center: V,
         displayMode: NavigationBarItem.TitleDisplayMode
@@ -291,7 +291,7 @@ extension View {
         )
     }
     
-    @inlinable
+    // @inlinable
     public func navigationBarTitleView<V: View>(
         _ center: V
     ) -> some View {
@@ -305,7 +305,7 @@ extension View {
         }
     }
     
-    @inlinable
+    // @inlinable
     public func navigationBarItems<Center: View, Trailing: View>(
         center: Center,
         trailing: Trailing,

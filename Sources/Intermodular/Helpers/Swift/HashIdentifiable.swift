@@ -12,7 +12,7 @@ public protocol HashIdentifiable: Hashable, Identifiable where Self.ID == Int {
 // MARK: - Implementation
 
 extension HashIdentifiable {
-    @inlinable
+    // @inlinable
     public var id: Int {
         hashValue
     }
@@ -21,7 +21,7 @@ extension HashIdentifiable {
 // MARK: - API
 
 extension Hashable {
-    @inlinable
+    // @inlinable
     public var hashIdentifiable: _HashIdentifiableValue<Self> {
         return .init(self)
     }
@@ -34,7 +34,7 @@ public struct _HashIdentifiableValue<Value: Hashable>: CustomStringConvertible, 
         .init(describing: value)
     }
     
-    @inlinable
+    // @inlinable
     public init(_ value: Value) {
         self.value = value
     }

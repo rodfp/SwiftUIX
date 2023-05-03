@@ -102,7 +102,7 @@ extension _PaginationView: UIViewControllerRepresentable {
         return uiViewController
     }
     
-    @usableFromInline
+    // @usableFromInline
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
         var shouldUpdateContent = true
         
@@ -200,7 +200,7 @@ extension _PaginationView: UIViewControllerRepresentable {
         uiViewController.pageControl?.pageIndicatorTintColor = context.environment.pageIndicatorTintColor?.toUIColor()
     }
     
-    @usableFromInline
+    // @usableFromInline
     func makeCoordinator() -> Coordinator {
         guard configuration.showsIndicators else {
             return _Coordinator_No_UIPageControl(self)
@@ -215,20 +215,20 @@ extension _PaginationView: UIViewControllerRepresentable {
 }
 
 extension _PaginationView {
-    @usableFromInline
+    // @usableFromInline
     class Coordinator: NSObject {
         var parent: _PaginationView
         var isInitialPageIndexApplied: Bool = false
         var isTransitioning: Bool = false
         var didJustCompleteTransition: Bool = false
         
-        @usableFromInline
+        // @usableFromInline
         init(_ parent: _PaginationView) {
             self.parent = parent
         }
         
         @objc(pageViewController:viewControllerBeforeViewController:)
-        @usableFromInline
+        // @usableFromInline
         func pageViewController(
             _ pageViewController: UIPageViewController,
             viewControllerBefore viewController: UIViewController
@@ -243,7 +243,7 @@ extension _PaginationView {
         }
         
         @objc(pageViewController:viewControllerAfterViewController:)
-        @usableFromInline
+        // @usableFromInline
         func pageViewController(
             _ pageViewController: UIPageViewController,
             viewControllerAfter viewController: UIViewController
@@ -257,7 +257,7 @@ extension _PaginationView {
             return pageViewController.viewController(after: viewController)
         }
         
-        @usableFromInline
+        // @usableFromInline
         @objc(pageViewController:willTransitionToViewControllers:)
         func pageViewController(
             _ pageViewController: UIPageViewController,
@@ -266,7 +266,7 @@ extension _PaginationView {
             isTransitioning = true
         }
         
-        @usableFromInline
+        // @usableFromInline
         @objc(pageViewController:didFinishAnimating:previousViewControllers:transitionCompleted:)
         func pageViewController(
             _ pageViewController: UIPageViewController,
@@ -292,19 +292,19 @@ extension _PaginationView {
         }
     }
     
-    @usableFromInline
+    // @usableFromInline
     class _Coordinator_No_UIPageControl: Coordinator, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
         
     }
     
-    @usableFromInline
+    // @usableFromInline
     class _Coordinator_Default_UIPageControl: Coordinator, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
-        @usableFromInline
+        // @usableFromInline
         @objc func presentationCount(for pageViewController: UIPageViewController) -> Int {
             return parent.content.data.count
         }
         
-        @usableFromInline
+        // @usableFromInline
         @objc func presentationIndex(for pageViewController: UIPageViewController) -> Int {
             guard let pageViewController = pageViewController as? UIViewControllerType else {
                 assertionFailure()
@@ -318,7 +318,7 @@ extension _PaginationView {
 }
 
 extension _PaginationView {
-    @usableFromInline
+    // @usableFromInline
     struct _ProgressionController: ProgressionController {
         weak var base: UIHostingPageViewController<Page>?
         

@@ -6,13 +6,13 @@ import Swift
 import SwiftUI
 
 public struct ResultView<SuccessView: View, FailureView: View, Success, Failure: Error>: View {
-    @usableFromInline
+    // @usableFromInline
     let successView: SuccessView?
     
-    @usableFromInline
+    // @usableFromInline
     let failureView: FailureView?
     
-    @inlinable
+    // @inlinable
     public var body: some View {
         PassthroughView {
             if successView != nil {

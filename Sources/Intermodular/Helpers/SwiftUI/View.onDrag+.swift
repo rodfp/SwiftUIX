@@ -11,13 +11,13 @@ private struct _OnDragModifier<Content: View>: View {
     private let rootView: Content
     private let data: () -> NSItemProvider
     
-    @usableFromInline
+    // @usableFromInline
     init(rootView: Content, data: @escaping () -> NSItemProvider) {
         self.rootView = rootView
         self.data = data
     }
     
-    @usableFromInline
+    // @usableFromInline
     var body: some View {
         if #available(iOS 13.4, iOSApplicationExtension 14.0, macCatalystApplicationExtension 14.0, *) {
             return rootView.onDrag(data)

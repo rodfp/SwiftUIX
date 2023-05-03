@@ -84,7 +84,7 @@ extension CocoaScrollViewProxy {
 }
 
 extension EnvironmentValues {
-    @usableFromInline
+    // @usableFromInline
     var _cocoaScrollViewProxy: Binding<CocoaScrollViewProxy>? {
         get {
             self[CocoaScrollViewProxy.EnvironmentKey.self]

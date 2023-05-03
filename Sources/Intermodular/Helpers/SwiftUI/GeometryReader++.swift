@@ -6,7 +6,7 @@ import Swift
 import SwiftUI
 
 extension GeometryReader {
-    @inlinable
+    // @inlinable
     public init<T: View>(
         alignment: Alignment,
         @ViewBuilder content: @escaping (GeometryProxy) -> T

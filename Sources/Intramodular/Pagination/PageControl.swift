@@ -13,12 +13,12 @@ public struct PageControl {
     public let numberOfPages: Int
     public let currentPage: Binding<Int>
     
-    @usableFromInline
+    // @usableFromInline
     var defersCurrentPageDisplay: Bool?
-    @usableFromInline
+    // @usableFromInline
     var hidesForSinglePage: Bool?
     
-    @inlinable
+    // @inlinable
     public init(numberOfPages: Int, currentPage: Binding<Int>) {
         self.numberOfPages = numberOfPages
         self.currentPage = currentPage
@@ -31,21 +31,21 @@ extension PageControl: UIViewRepresentable {
     public typealias UIViewType = UIPageControl
     
     public class Coordinator: NSObject {
-        @usableFromInline
+        // @usableFromInline
         var base: PageControl
         
-        @usableFromInline
+        // @usableFromInline
         init(_ base: PageControl) {
             self.base = base
         }
         
-        @inlinable
+        // @inlinable
         @objc public func updateCurrentPage(sender: UIViewType) {
             base.currentPage.wrappedValue = sender.currentPage
         }
     }
     
-    @inlinable
+    // @inlinable
     public func makeUIView(context: Context) -> UIViewType {
         let uiView = UIPageControl()
         
@@ -58,7 +58,7 @@ extension PageControl: UIViewRepresentable {
         return uiView
     }
     
-    @inlinable
+    // @inlinable
     public func updateUIView(_ uiView: UIViewType, context: Context) {
         context.coordinator.base = self
         
@@ -82,7 +82,7 @@ extension PageControl: UIViewRepresentable {
         }
     }
     
-    @inlinable
+    // @inlinable
     public func makeCoordinator() -> Coordinator {
         .init(self)
     }
@@ -91,12 +91,12 @@ extension PageControl: UIViewRepresentable {
 // MARK: - API
 
 extension PageControl {
-    @inlinable
+    // @inlinable
     public func defersCurrentPageDisplay(_ defersCurrentPageDisplay: Bool) -> Self {
         then({ $0.defersCurrentPageDisplay = defersCurrentPageDisplay })
     }
     
-    @inlinable
+    // @inlinable
     public func hidesForSinglePage(_ hidesForSinglePage: Bool) -> Self {
         then({ $0.hidesForSinglePage = hidesForSinglePage })
     }
@@ -104,17 +104,17 @@ extension PageControl {
 
 extension View {
     @available(iOS 14.0, tvOS 14.0, *)
-    @inlinable
+    // @inlinable
     public func pageControlBackgroundStyle(_ backgroundStyle: UIPageControl.BackgroundStyle) -> some View {
         environment(\.pageControlBackgroundStyle, backgroundStyle)
     }
     
-    @inlinable
+    // @inlinable
     public func pageIndicatorTintColor(_ color: Color) -> some View {
         environment(\.pageIndicatorTintColor, color)
     }
     
-    @inlinable
+    // @inlinable
     public func currentPageIndicatorTintColor(_ color: Color) -> some View {
         environment(\.currentPageIndicatorTintColor, color)
     }
@@ -124,28 +124,28 @@ extension View {
 
 extension PageControl {
     @available(iOS 14.0, tvOS 14.0, *)
-    @usableFromInline
+    // @usableFromInline
     struct BackgroundStyleEnvironmentKey: EnvironmentKey {
-        @usableFromInline
+        // @usableFromInline
         static let defaultValue: UIPageControl.BackgroundStyle? = nil
     }
     
-    @usableFromInline
+    // @usableFromInline
     struct TintColorEnvironmentKey: EnvironmentKey {
-        @usableFromInline
+        // @usableFromInline
         static let defaultValue: Color? = nil
     }
     
-    @usableFromInline
+    // @usableFromInline
     struct CurrentTintColorEnvironmentKey: EnvironmentKey {
-        @usableFromInline
+        // @usableFromInline
         static let defaultValue: Color? = nil
     }
 }
 
 extension EnvironmentValues {
     @available(iOS 14.0, tvOS 14.0, *)
-    @inlinable
+    // @inlinable
     public var pageControlBackgroundStyle: UIPageControl.BackgroundStyle? {
         get {
             self[PageControl.BackgroundStyleEnvironmentKey.self]
@@ -154,7 +154,7 @@ extension EnvironmentValues {
         }
     }
     
-    @inlinable
+    // @inlinable
     public var pageIndicatorTintColor: Color? {
         get {
             self[PageControl.TintColorEnvironmentKey.self]
@@ -163,7 +163,7 @@ extension EnvironmentValues {
         }
     }
     
-    @inlinable
+    // @inlinable
     public var currentPageIndicatorTintColor: Color? {
         get {
             self[PageControl.CurrentTintColorEnvironmentKey.self]

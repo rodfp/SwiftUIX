@@ -14,13 +14,13 @@ public struct AutomaticAxisStack<Content: View>: View {
     public let spacing: CGFloat?
     public let content: Content
     
-    @usableFromInline
+    // @usableFromInline
     @State var intrinsicGeometrySize: CGSize = .zero
     
-    @usableFromInline
+    // @usableFromInline
     @State var geometrySize: CGSize = .zero
     
-    @usableFromInline
+    // @usableFromInline
     @State var wantsRealign: Bool = false
     
     public init(
@@ -35,7 +35,7 @@ public struct AutomaticAxisStack<Content: View>: View {
         self.content = content()
     }
     
-    @inlinable
+    // @inlinable
     public var body: some View {
         PassthroughView {
             if wantsRealign {
@@ -96,7 +96,7 @@ public struct HVStack<Content: View>: View {
         self.content = content()
     }
     
-    @inlinable
+    // @inlinable
     public var body: some View {
         AutomaticAxisStack(
             preferredAxis: .horizontal,
@@ -126,7 +126,7 @@ public struct VHStack<Content: View>: View {
         self.content = content()
     }
     
-    @inlinable
+    // @inlinable
     public var body: some View {
         AutomaticAxisStack(
             preferredAxis: .vertical,

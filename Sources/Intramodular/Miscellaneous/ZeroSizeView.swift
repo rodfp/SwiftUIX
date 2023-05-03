@@ -33,12 +33,12 @@ public struct _ZeroSizeView: AppKitOrUIKitViewRepresentable {
         #endif
     }
     
-    @inlinable
+    // @inlinable
     public init() {
         
     }
     
-    @inlinable
+    // @inlinable
     public func makeAppKitOrUIKitView(context: Context) -> AppKitOrUIKitViewType {
         let view = AppKitOrUIKitViewType()
         
@@ -57,7 +57,7 @@ public struct _ZeroSizeView: AppKitOrUIKitViewRepresentable {
         return view
     }
     
-    @inlinable
+    // @inlinable
     public func updateAppKitOrUIKitView(_ view: AppKitOrUIKitViewType, context: Context) {
         view.frame.size = .zero
     }
@@ -80,7 +80,7 @@ public struct ZeroSizeView: View {
 
 /// A zero-size view for when `EmptyView` just doesn't work.
 public struct ZeroSizeView: View {
-    @inlinable
+    // @inlinable
     public var body: some View {
         Color.almostClear
             .frame(width: 0, height: 0)
@@ -88,7 +88,7 @@ public struct ZeroSizeView: View {
             .accessibility(hidden: true)
     }
     
-    @inlinable
+    // @inlinable
     public init() {
         
     }

@@ -17,7 +17,7 @@ public struct XStack<Content: View>: View {
         self.content = content()
     }
     
-    @inlinable
+    // @inlinable
     public var body: some View {
         ZStack(alignment: alignment) {
             XSpacer()

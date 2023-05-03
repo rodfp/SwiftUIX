@@ -12,7 +12,7 @@ public struct AxisStack<Content: View>: View {
     public let spacing: CGFloat?
     public let content: Content
     
-    @inlinable
+    // @inlinable
     public var body: some View {
         if axis == .x {
             HStack(
@@ -36,7 +36,7 @@ public struct AxisStack<Content: View>: View {
 }
 
 extension AxisStack {
-    @inlinable
+    // @inlinable
     public init(
         axis: Axis3D,
         alignment: Alignment = .center,
@@ -49,7 +49,7 @@ extension AxisStack {
         self.content = content()
     }
     
-    @inlinable
+    // @inlinable
     public init(
         axis: Axis,
         alignment: Alignment = .center,

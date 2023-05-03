@@ -14,12 +14,12 @@ struct WeakBox<T: AnyObject> {
 }
 
 @propertyWrapper
-@usableFromInline
+// @usableFromInline
 final class ReferenceBox<T> {
-    @usableFromInline
+    // @usableFromInline
     var value: T
     
-    @usableFromInline
+    // @usableFromInline
     var wrappedValue: T {
         get {
             value
@@ -28,12 +28,12 @@ final class ReferenceBox<T> {
         }
     }
     
-    @usableFromInline
+    // @usableFromInline
     init(_ value: T) {
         self.value = value
     }
     
-    @usableFromInline
+    // @usableFromInline
     init(wrappedValue value: T) {
         self.value = value
     }
@@ -44,12 +44,12 @@ extension ReferenceBox: @unchecked Sendable where T: Sendable {
 }
 
 @propertyWrapper
-@usableFromInline
+// @usableFromInline
 final class WeakReferenceBox<T: AnyObject> {
-    @usableFromInline
+    // @usableFromInline
     weak var value: T?
     
-    @usableFromInline
+    // @usableFromInline
     var wrappedValue: T? {
         get {
             value
@@ -58,12 +58,12 @@ final class WeakReferenceBox<T: AnyObject> {
         }
     }
 
-    @usableFromInline
+    // @usableFromInline
     init(_ value: T?) {
         self.value = value
     }
     
-    @usableFromInline
+    // @usableFromInline
     init(wrappedValue value: T?) {
         self.value = value
     }
@@ -72,28 +72,28 @@ final class WeakReferenceBox<T: AnyObject> {
 #if canImport(Combine)
 import Combine
 
-@usableFromInline
+// @usableFromInline
 final class ObservableReferenceBox<T>: ObservableObject {
-    @usableFromInline
+    // @usableFromInline
     @Published var value: T
     
-    @usableFromInline
+    // @usableFromInline
     init(_ value: T) {
         self.value = value
     }
 }
 
 @propertyWrapper
-@usableFromInline
+// @usableFromInline
 final class ObservableWeakReferenceBox<T: AnyObject>: ObservableObject {
-    @usableFromInline
+    // @usableFromInline
     weak var value: T? {
         willSet {
             objectWillChange.send()
         }
     }
     
-    @usableFromInline
+    // @usableFromInline
     var wrappedValue: T? {
         get {
             value
@@ -102,7 +102,7 @@ final class ObservableWeakReferenceBox<T: AnyObject>: ObservableObject {
         }
     }
     
-    @usableFromInline
+    // @usableFromInline
     init(_ value: T?) {
         self.value = value
     }

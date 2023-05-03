@@ -6,7 +6,7 @@ import Swift
 import SwiftUI
 
 /// An internal structure used to manage cell preferences for `CocoaList` and `CollectionView`.
-@usableFromInline
+// @usableFromInline
 struct _CollectionOrListCellPreferences: Hashable {
     var isClipped = false
     var isFocusable = true

@@ -11,7 +11,7 @@ extension HStack {
     }
     
     @_disfavoredOverload
-    @inlinable
+    // @inlinable
     public init(
         alignment: VerticalAlignment = .center,
         fill: _ProportionalFill,
@@ -21,7 +21,7 @@ extension HStack {
         self.init(alignment: alignment, spacing: spacing, content: content)
     }
     
-    @inlinable
+    // @inlinable
     public init<V0: View, V1: View>(
         alignment: VerticalAlignment = .center,
         fill: _ProportionalFill,
@@ -41,7 +41,7 @@ extension HStack {
         }
     }
     
-    @inlinable
+    // @inlinable
     public init<V0: View, V1: View, V2: View>(
         alignment: VerticalAlignment = .center,
         fill: _ProportionalFill,
@@ -62,7 +62,7 @@ extension HStack {
         }
     }
     
-    @inlinable
+    // @inlinable
     public init<V0: View, V1: View, V2: View, V3: View>(
         alignment: VerticalAlignment = .center,
         fill: _ProportionalFill,
@@ -87,7 +87,7 @@ extension HStack {
 
 extension HStack {
     @_disfavoredOverload
-    @inlinable
+    // @inlinable
     public init<V: View>(
         direction: LayoutDirection,
         alignment: VerticalAlignment = .center,
@@ -101,7 +101,7 @@ extension HStack {
         }
     }
     
-    @inlinable
+    // @inlinable
     public init<V0: View, V1: View>(
         direction: LayoutDirection,
         alignment: VerticalAlignment = .center,
@@ -127,7 +127,7 @@ extension HStack {
         }
     }
     
-    @inlinable
+    // @inlinable
     public init<V0: View, V1: View, V2: View>(
         direction: LayoutDirection,
         alignment: VerticalAlignment = .center,
@@ -155,7 +155,7 @@ extension HStack {
         }
     }
     
-    @inlinable
+    // @inlinable
     public init<V0: View, V1: View, V2: View, V3: View>(
         direction: LayoutDirection,
         alignment: VerticalAlignment = .center,

@@ -11,7 +11,7 @@ extension VStack {
     }
     
     @_disfavoredOverload
-    @inlinable
+    // @inlinable
     public init(
         alignment: HorizontalAlignment = .center,
         fill: _ProportionalFill,
@@ -21,7 +21,7 @@ extension VStack {
         self.init(alignment: alignment, spacing: spacing, content: content)
     }
     
-    @inlinable
+    // @inlinable
     public init<V0: View, V1: View>(
         alignment: HorizontalAlignment = .center,
         fill: _ProportionalFill,
@@ -41,7 +41,7 @@ extension VStack {
         }
     }
     
-    @inlinable
+    // @inlinable
     public init<V0: View, V1: View, V2: View>(
         alignment: HorizontalAlignment = .center,
         fill: _ProportionalFill,
@@ -62,7 +62,7 @@ extension VStack {
         }
     }
     
-    @inlinable
+    // @inlinable
     public init<V0: View, V1: View, V2: View, V3: View>(
         alignment: HorizontalAlignment = .center,
         fill: _ProportionalFill,

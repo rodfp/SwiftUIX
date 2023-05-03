@@ -18,24 +18,24 @@ public struct CocoaList<
     public typealias Offset = ScrollView<AnyView>.ContentOffset
     public typealias UIViewControllerType = UIHostingTableViewController<SectionType, ItemType, Data, SectionHeader, SectionFooter, RowContent>
     
-    @usableFromInline
+    // @usableFromInline
     let data: Data
-    @usableFromInline
+    // @usableFromInline
     let sectionHeader: (SectionType) -> SectionHeader
-    @usableFromInline
+    // @usableFromInline
     let sectionFooter: (SectionType) -> SectionFooter
-    @usableFromInline
+    // @usableFromInline
     let rowContent: (ItemType) -> RowContent
     
-    @usableFromInline
+    // @usableFromInline
     var style: UITableView.Style = .plain
     
     #if !os(tvOS)
-    @usableFromInline
+    // @usableFromInline
     var separatorStyle: UITableViewCell.SeparatorStyle = .singleLine
     #endif
     
-    @usableFromInline
+    // @usableFromInline
     var scrollViewConfiguration: CocoaScrollViewConfiguration<AnyView> = nil
     
     public init(

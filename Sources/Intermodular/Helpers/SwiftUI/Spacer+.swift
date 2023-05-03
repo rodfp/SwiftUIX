@@ -7,14 +7,14 @@ import SwiftUI
 
 /// A horizontal spacer.
 public struct HSpacer: View {
-    @inlinable
+    // @inlinable
     public var body: some View {
         HStack {
             Spacer()
         }
     }
     
-    @inlinable
+    // @inlinable
     public init() {
         
     }
@@ -22,14 +22,14 @@ public struct HSpacer: View {
 
 /// A vertical spacer.
 public struct VSpacer: View {
-    @inlinable
+    // @inlinable
     public var body: some View {
         VStack {
             Spacer()
         }
     }
     
-    @inlinable
+    // @inlinable
     public init() {
         
     }
@@ -39,7 +39,7 @@ public struct VSpacer: View {
 ///
 /// `XSpacer` expands to fill its entire container.
 public struct XSpacer: View {
-    @inlinable
+    // @inlinable
     public var body: some View {
         VStack(spacing: 0) {
             Spacer()
@@ -50,7 +50,7 @@ public struct XSpacer: View {
         }
     }
     
-    @inlinable
+    // @inlinable
     public init() {
         
     }

@@ -8,11 +8,11 @@ import SwiftUI
 
 @propertyWrapper
 public struct DelayedState<Value>: DynamicProperty {
-    @inlinable
+    // @inlinable
     @State public var _wrappedValue: Value
     
     /// The current state value.
-    @inlinable
+    // @inlinable
     public var wrappedValue: Value {
         get {
             _wrappedValue
@@ -23,7 +23,7 @@ public struct DelayedState<Value>: DynamicProperty {
         }
     }
     
-    @inlinable
+    // @inlinable
     public var unsafelyUnwrapped: Value {
         get {
             _wrappedValue
@@ -33,7 +33,7 @@ public struct DelayedState<Value>: DynamicProperty {
     }
     
     /// The binding value, as "unwrapped" by accessing `$foo` on a `@Binding` property.
-    @inlinable
+    // @inlinable
     public var projectedValue: Binding<Value> {
         return .init(
             get: { self.wrappedValue },

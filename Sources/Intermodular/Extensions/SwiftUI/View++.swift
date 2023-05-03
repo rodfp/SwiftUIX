@@ -6,7 +6,7 @@ import Swift
 import SwiftUI
 
 extension View {
-    @inlinable
+    // @inlinable
     public func then(_ body: (inout Self) -> Void) -> Self {
         var result = self
         
@@ -16,7 +16,7 @@ extension View {
     }
     
     /// Returns a type-erased version of `self`.
-    @inlinable
+    // @inlinable
     public func eraseToAnyView() -> AnyView {
         return .init(self)
     }
@@ -26,7 +26,7 @@ extension View {
 
 extension View {
     @_disfavoredOverload
-    @inlinable
+    // @inlinable
     public func background<Background: View>(
         alignment: Alignment = .center,
         @ViewBuilder _ background: () -> Background
@@ -35,23 +35,23 @@ extension View {
     }
     
     @_disfavoredOverload
-    @inlinable
+    // @inlinable
     public func background(_ color: Color) -> some View {
         background(PassthroughView(content: { color }))
     }
     
-    @inlinable
+    // @inlinable
     @available(*, deprecated, message: "Please use View.backgroundFill(_:) instead.")
     public func backgroundColor(_ color: Color) -> some View {
         background(color.edgesIgnoringSafeArea(.all))
     }
     
-    @inlinable
+    // @inlinable
     public func backgroundFill(_ color: Color) -> some View {
         background(color.edgesIgnoringSafeArea(.all))
     }
     
-    @inlinable
+    // @inlinable
     public func backgroundFill<BackgroundFill: View>(
         _ fill: BackgroundFill,
         alignment: Alignment = .center
@@ -59,7 +59,7 @@ extension View {
         background(fill.edgesIgnoringSafeArea(.all), alignment: alignment)
     }
     
-    @inlinable
+    // @inlinable
     public func backgroundFill<BackgroundFill: View>(
         alignment: Alignment = .center,
         @ViewBuilder _ fill: () -> BackgroundFill
@@ -72,7 +72,7 @@ extension View {
 
 extension View {
     @_disfavoredOverload
-    @inlinable
+    // @inlinable
     public func overlay<Overlay: View>(
         alignment: Alignment = .center,
         @ViewBuilder _ overlay: () -> Overlay
@@ -86,7 +86,7 @@ extension View {
 extension View {
     /// Hides this view conditionally.
     @_disfavoredOverload
-    @inlinable
+    // @inlinable
     public func hidden(_ isHidden: Bool) -> some View {
         PassthroughView {
             if isHidden {
@@ -101,22 +101,22 @@ extension View {
 // MARK: View.offset
 
 extension View {
-    @inlinable
+    // @inlinable
     public func inset(_ point: CGPoint) -> some View {
         offset(x: -point.x, y: -point.y)
     }
     
-    @inlinable
+    // @inlinable
     public func inset(_ length: CGFloat) -> some View {
         offset(x: -length, y: -length)
     }
     
-    @inlinable
+    // @inlinable
     public func offset(_ point: CGPoint) -> some View {
         offset(x: point.x, y: point.y)
     }
     
-    @inlinable
+    // @inlinable
     public func offset(_ length: CGFloat) -> some View {
         offset(x: length, y: length)
     }
@@ -127,7 +127,7 @@ extension View {
 extension View {
     /// A view that pads this view inside the specified edge insets with a system-calculated amount of padding and a color.
     @_disfavoredOverload
-    @inlinable
+    // @inlinable
     public func padding(_ color: Color) -> some View {
         padding().background(color)
     }

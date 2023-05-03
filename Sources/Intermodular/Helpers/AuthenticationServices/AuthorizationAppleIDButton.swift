@@ -11,14 +11,14 @@ import SwiftUI
 @available(iOSApplicationExtension, unavailable)
 @available(tvOSApplicationExtension, unavailable)
 public struct AuthorizationAppleIDButton {
-    @usableFromInline
+    // @usableFromInline
     let type: AuthorizationAppleIDButtonType
-    @usableFromInline
+    // @usableFromInline
     let style: AuthorizationAppleIDButtonStyle
     
-    @usableFromInline
+    // @usableFromInline
     var onAuthorization: (Result<ASAuthorization, Error>) -> Void = { _ in }
-    @usableFromInline
+    // @usableFromInline
     var requestedScopes: [ASAuthorization.Scope]?
     
     public init(

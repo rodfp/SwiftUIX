@@ -5,10 +5,10 @@
 import SwiftUI
 
 public struct Labeled<Label: View, Control: View>: View {
-    @usableFromInline
+    // @usableFromInline
     let label: Label
     
-    @usableFromInline
+    // @usableFromInline
     let control: Control
     
     public var body: some View {
@@ -26,7 +26,7 @@ public struct Labeled<Label: View, Control: View>: View {
 }
 
 extension Labeled {
-    @inlinable
+    // @inlinable
     public init(
         @ViewBuilder control: () -> Control,
         @ViewBuilder label: () -> Label
@@ -37,7 +37,7 @@ extension Labeled {
 }
 
 extension Labeled where Label == Text {
-    @inlinable
+    // @inlinable
     public init(
         _ title: Text,
         @ViewBuilder control: () -> Control
@@ -45,7 +45,7 @@ extension Labeled where Label == Text {
         self.init(control: control, label: { title.fontWeight(.regular) })
     }
     
-    @inlinable
+    // @inlinable
     public init<S: StringProtocol>(
         _ title: S,
         @ViewBuilder control: () -> Control

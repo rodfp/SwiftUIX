@@ -7,7 +7,7 @@ import SwiftUI
 
 extension View {
     /// Causes the view to greedily fill into its container.
-    @inlinable
+    // @inlinable
     public func frame(
         _ size: _GreedyFrameSize,
         alignment: Alignment = .center
@@ -15,7 +15,7 @@ extension View {
         modifier(GreedyFrameModifer(width: .greedy, height: .greedy, alignment: alignment))
     }
     
-    @inlinable
+    // @inlinable
     public func frame(
         width: _GreedyFrameSize,
         alignment: Alignment = .center
@@ -23,7 +23,7 @@ extension View {
         modifier(GreedyFrameModifer(width: .greedy, height: nil, alignment: alignment))
     }
     
-    @inlinable
+    // @inlinable
     public func frame(
         width: _GreedyFrameSize,
         height: CGFloat?,
@@ -32,7 +32,7 @@ extension View {
         modifier(GreedyFrameModifer(width: .greedy, height: height.map({ .fixed($0) }), alignment: alignment))
     }
     
-    @inlinable
+    // @inlinable
     public func frame(
         width: CGFloat?,
         height: _GreedyFrameSize,
@@ -41,7 +41,7 @@ extension View {
         modifier(GreedyFrameModifer(width: width.map({ .fixed($0) }), height: .greedy, alignment: alignment))
     }
     
-    @inlinable
+    // @inlinable
     public func frame(
         height: _GreedyFrameSize,
         alignment: Alignment = .center
@@ -49,7 +49,7 @@ extension View {
         modifier(GreedyFrameModifer(width: nil, height: .greedy, alignment: alignment))
     }
     
-    @inlinable
+    // @inlinable
     public func frame(
         _ size: _GreedyFrameSize,
         _ axis: Axis,
@@ -70,7 +70,7 @@ extension View {
 }
 
 extension View {
-    @inlinable
+    // @inlinable
     public func relativeHeight(
         _ ratio: CGFloat,
         alignment: Alignment = .center
@@ -83,7 +83,7 @@ extension View {
         }
     }
     
-    @inlinable
+    // @inlinable
     public func relativeWidth(
         _ ratio: CGFloat,
         alignment: Alignment = .center
@@ -96,7 +96,7 @@ extension View {
         }
     }
     
-    @inlinable
+    // @inlinable
     public func relativeSize(
         width widthRatio: CGFloat?,
         height heightRatio: CGFloat?,
@@ -114,7 +114,7 @@ extension View {
 
 extension View {
     /// Causes the view to fill into its container.
-    @inlinable
+    // @inlinable
     public func fill(alignment: Alignment = .center) -> some View {
         relativeSize(width: 1.0, height: 1.0, alignment: alignment)
     }
@@ -122,7 +122,7 @@ extension View {
 
 extension View {
     /// Causes the view to greedily fill to fit into its container.
-    @inlinable
+    // @inlinable
     public func fit() -> some View {
         GeometryReader { geometry in
             self.frame(
@@ -134,12 +134,12 @@ extension View {
 }
 
 extension View {
-    @inlinable
+    // @inlinable
     public func width(_ width: CGFloat?) -> some View {
         frame(width: width)
     }
     
-    @inlinable
+    // @inlinable
     public func height(_ height: CGFloat?) -> some View {
         frame(height: height)
     }
@@ -150,7 +150,7 @@ extension View {
     /// height, or both. If you only specify one of the dimensions, the
     /// resulting view assumes this view's sizing behavior in the other
     /// dimension.
-    @inlinable
+    // @inlinable
     public func frame(_ size: CGSize?, alignment: Alignment = .center) -> some View {
         frame(width: size?.width, height: size?.height, alignment: alignment)
     }
@@ -161,7 +161,7 @@ extension View {
     /// height, or both. If you only specify one of the dimensions, the
     /// resulting view assumes this view's sizing behavior in the other
     /// dimension.
-    @inlinable
+    // @inlinable
     public func frame(min size: CGSize?, alignment: Alignment = .center) -> some View {
         frame(minWidth: size?.width, minHeight: size?.height, alignment: alignment)
     }
@@ -172,7 +172,7 @@ extension View {
     /// height, or both. If you only specify one of the dimensions, the
     /// resulting view assumes this view's sizing behavior in the other
     /// dimension.
-    @inlinable
+    // @inlinable
     public func frame(max size: CGSize?, alignment: Alignment = .center) -> some View {
         frame(maxWidth: size?.width, maxHeight: size?.height, alignment: alignment)
     }
@@ -182,7 +182,7 @@ extension View {
     /// height, or both. If you only specify one of the dimensions, the
     /// resulting view assumes this view's sizing behavior in the other
     /// dimension.
-    @inlinable
+    // @inlinable
     public func frame(
         min minSize: CGSize?,
         max maxSize: CGSize?,
@@ -216,27 +216,27 @@ extension View {
 }
 
 extension View {
-    @inlinable
+    // @inlinable
     public func minWidth(_ width: CGFloat?) -> some View {
         frame(minWidth: width)
     }
     
-    @inlinable
+    // @inlinable
     public func maxWidth(_ width: CGFloat?) -> some View {
         frame(maxWidth: width)
     }
     
-    @inlinable
+    // @inlinable
     public func minHeight(_ height: CGFloat?) -> some View {
         frame(minHeight: height)
     }
     
-    @inlinable
+    // @inlinable
     public func maxHeight(_ height: CGFloat?) -> some View {
         frame(maxHeight: height)
     }
     
-    @inlinable
+    // @inlinable
     public func frame(min dimensionLength: CGFloat, axis: Axis) -> some View {
         switch axis {
             case .horizontal:
@@ -249,13 +249,13 @@ extension View {
 
 extension View {
     /// Positions this view within an invisible frame having the specified ideal size constraints.
-    @inlinable
+    // @inlinable
     public func idealFrame(width: CGFloat?, height: CGFloat?) -> some View {
         frame(idealWidth: width, idealHeight: height)
     }
     
     /// Positions this view within an invisible frame having the specified ideal size constraints.
-    @inlinable
+    // @inlinable
     public func idealMinFrame(
         width: CGFloat?,
         maxWidth: CGFloat? = nil,
@@ -274,12 +274,12 @@ extension View {
 }
 
 extension View {
-    @inlinable
+    // @inlinable
     public func squareFrame(sideLength: CGFloat?, alignment: Alignment = .center) -> some View {
         frame(width: sideLength, height: sideLength, alignment: alignment)
     }
     
-    @inlinable
+    // @inlinable
     public func squareFrame() -> some View {
         GeometryReader { geometry in
             self.frame(width: geometry.size.minimumDimensionLength, height: geometry.size.minimumDimensionLength)
@@ -288,7 +288,7 @@ extension View {
 }
 
 extension View {
-    @inlinable
+    // @inlinable
     public func frameZeroClipped(_ clipped: Bool = true) -> some View {
         frame(clipped ? .zero : nil)
             .clipped()
@@ -297,12 +297,12 @@ extension View {
 
 // MARK: - Auxiliary
 
-@usableFromInline
+// @usableFromInline
 protocol _opaque_FrameModifier {
     func dimensionsThatFit(in dimensions: OptionalDimensions) -> OptionalDimensions
 }
 
-@usableFromInline
+// @usableFromInline
 protocol _opaque_FrameModifiedContent {
     var _opaque_frameModifier: _opaque_FrameModifier { get }
 }
@@ -312,15 +312,15 @@ public enum _GreedyFrameSize {
     case greedy
 }
 
-@usableFromInline
+// @usableFromInline
 struct GreedyFrameModifer: _opaque_FrameModifier, ViewModifier {
     @_frozen
-    @usableFromInline
+    // @usableFromInline
     enum Dimension {
         case fixed(CGFloat)
         case greedy
         
-        @usableFromInline
+        // @usableFromInline
         var fixedValue: CGFloat? {
             guard case .fixed(let value) = self else {
                 return nil
@@ -329,7 +329,7 @@ struct GreedyFrameModifer: _opaque_FrameModifier, ViewModifier {
             return value
         }
         
-        @usableFromInline
+        // @usableFromInline
         func resolve(in container: OptionalDimensions) -> CGFloat? {
             switch self {
                 case .fixed(let value):
@@ -340,21 +340,21 @@ struct GreedyFrameModifer: _opaque_FrameModifier, ViewModifier {
         }
     }
     
-    @usableFromInline
+    // @usableFromInline
     let width: Dimension?
-    @usableFromInline
+    // @usableFromInline
     let height: Dimension?
-    @usableFromInline
+    // @usableFromInline
     let alignment: Alignment
     
-    @usableFromInline
+    // @usableFromInline
     init(width: Dimension?, height: Dimension?, alignment: Alignment) {
         self.width = width
         self.height = height
         self.alignment = alignment
     }
     
-    @usableFromInline
+    // @usableFromInline
     func body(content: Content) -> some View {
         content.frame(
             minWidth: width?.fixedValue,
@@ -367,7 +367,7 @@ struct GreedyFrameModifer: _opaque_FrameModifier, ViewModifier {
         )
     }
     
-    @usableFromInline
+    // @usableFromInline
     func dimensionsThatFit(in dimensions: OptionalDimensions) -> OptionalDimensions {
         .init(width: width?.resolve(in: dimensions), height: height?.resolve(in: dimensions))
     }
@@ -384,7 +384,7 @@ extension OptionalDimensions {
 }
 
 extension ModifiedContent: _opaque_FrameModifiedContent where Modifier: _opaque_FrameModifier {
-    @usableFromInline
+    // @usableFromInline
     var _opaque_frameModifier: _opaque_FrameModifier {
         modifier
     }

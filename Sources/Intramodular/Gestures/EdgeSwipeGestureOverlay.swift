@@ -6,14 +6,14 @@ import SwiftUI
 
 #if os(iOS) || targetEnvironment(macCatalyst)
 
-@usableFromInline
+// @usableFromInline
 struct EdgeSwipeGestureOverlay: UIViewRepresentable {
-    @usableFromInline
+    // @usableFromInline
     let edges: [Edge]
-    @usableFromInline
+    // @usableFromInline
     let action: Action
     
-    @inlinable
+    // @inlinable
     init(
         edges: [Edge],
         action: Action
@@ -37,27 +37,27 @@ struct EdgeSwipeGestureOverlay: UIViewRepresentable {
         return view
     }
     
-    @inlinable
+    // @inlinable
     public func updateUIView(_ uiView: UIView, context: Context) {
         context.coordinator.base = self
     }
     
-    @usableFromInline
+    // @usableFromInline
     class Coordinator: NSObject {
-        @usableFromInline
+        // @usableFromInline
         var base: EdgeSwipeGestureOverlay
         
         public init(base: EdgeSwipeGestureOverlay) {
             self.base = base
         }
         
-        @usableFromInline
+        // @usableFromInline
         @objc func didSwipe() {
             base.action.perform()
         }
     }
     
-    @usableFromInline
+    // @usableFromInline
     func makeCoordinator() -> Coordinator {
         .init(base: self)
     }
@@ -66,7 +66,7 @@ struct EdgeSwipeGestureOverlay: UIViewRepresentable {
 // MARK: - API
 
 extension View {
-    @inlinable
+    // @inlinable
     public func onScreenEdgePan(
         edges: [Edge],
         perform action: @escaping () -> Void = { }

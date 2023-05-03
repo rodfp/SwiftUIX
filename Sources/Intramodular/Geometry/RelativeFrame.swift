@@ -47,7 +47,7 @@ public struct RelativeFrame: ExpressibleByNilLiteral, Hashable {
         self.height = .width(multipliedBy: height)
     }
     
-    @inlinable
+    // @inlinable
     public func dimensionsThatFit(in size: OptionalDimensions) -> OptionalDimensions {
         .init(
             width:  width?.resolve(for: .width, in: size),
@@ -55,12 +55,12 @@ public struct RelativeFrame: ExpressibleByNilLiteral, Hashable {
         )
     }
     
-    @inlinable
+    // @inlinable
     public func dimensionsThatFit(in size: CGSize) -> OptionalDimensions {
         dimensionsThatFit(in: .init(size))
     }
     
-    @usableFromInline
+    // @usableFromInline
     func sizeThatFits(in size: CGSize) -> CGSize {
         .init(dimensionsThatFit(in: size), default: size)
     }
@@ -111,7 +111,7 @@ public enum RelativeFrameDimension: Hashable {
     case absolute(CGFloat)
     case fractional(FractionalValue)
     
-    @usableFromInline
+    // @usableFromInline
     func resolve(
         for dimensionType: FrameDimensionType,
         in dimensions: OptionalDimensions
@@ -179,15 +179,15 @@ extension EnvironmentValues {
     }
 }
 
-@usableFromInline
+// @usableFromInline
 struct RelativeFrameModifier: _opaque_FrameModifier, ViewModifier {
     @Environment(\._relativeFrameResolvedValues) var _relativeFrameResolvedValues
     
-    @usableFromInline
+    // @usableFromInline
     let frame: RelativeFrame
     
     /// The identifier for this relative frame. Required to propagate values via preference keys.
-    @usableFromInline
+    // @usableFromInline
     @State var id: AnyHashable = UUID()
     
     var resolvedDimensions: OptionalDimensions {
@@ -202,7 +202,7 @@ struct RelativeFrameModifier: _opaque_FrameModifier, ViewModifier {
             .frame(resolvedDimensions)
     }
     
-    @usableFromInline
+    // @usableFromInline
     func dimensionsThatFit(in dimensions: OptionalDimensions) -> OptionalDimensions {
         frame.dimensionsThatFit(in: dimensions)
     }

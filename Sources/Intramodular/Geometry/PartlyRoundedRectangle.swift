@@ -34,7 +34,7 @@ extension PartRoundedRectangle: Shape {
 
 #if os(iOS) || os(macOS) || os(tvOS) || targetEnvironment(macCatalyst)
 extension View {
-    @inlinable
+    // @inlinable
     public func cornerRadius(
         _ corners: [RectangleCorner],
         _ cornerRadii: CGFloat
@@ -42,7 +42,7 @@ extension View {
         clipShape(PartRoundedRectangle(corners: corners, cornerRadii: cornerRadii))
     }
     
-    @inlinable
+    // @inlinable
     public func cornerRadius(
         _ corners: Set<RectangleCorner>,
         _ cornerRadii: CGFloat
@@ -50,7 +50,7 @@ extension View {
         clipShape(PartRoundedRectangle(corners: Array(corners), cornerRadii: cornerRadii))
     }
     
-    @inlinable
+    // @inlinable
     public func cornerRadius(
         _ corner: RectangleCorner,
         _ cornerRadii: CGFloat

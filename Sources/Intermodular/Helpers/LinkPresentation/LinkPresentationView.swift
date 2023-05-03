@@ -10,16 +10,16 @@ import SwiftUI
 
 /// A rich visual representation of a link.
 public struct LinkPresentationView<Placeholder: View>: Identifiable, View {
-    @usableFromInline
+    // @usableFromInline
     let url: URL?
-    @usableFromInline
+    // @usableFromInline
     let metadata: LPLinkMetadata?
-    @usableFromInline
+    // @usableFromInline
     let onMetadataFetchCompletion: ((Result<LPLinkMetadata, Error>) -> Void)?
-    @usableFromInline
+    // @usableFromInline
     let placeholder: Placeholder
     
-    @usableFromInline
+    // @usableFromInline
     var disableMetadataFetch: Bool = false
     
     public var id: some Hashable {
@@ -42,7 +42,7 @@ public struct LinkPresentationView<Placeholder: View>: Identifiable, View {
 // MARK: - API
 
 extension LinkPresentationView {
-    @inlinable
+    // @inlinable
     public init(
         url: URL,
         onMetadataFetchCompletion: ((Result<LPLinkMetadata, Error>) -> Void)? = nil,
@@ -54,7 +54,7 @@ extension LinkPresentationView {
         self.placeholder = placeholder()
     }
     
-    @inlinable
+    // @inlinable
     public init(
         url: URL,
         metadata: LPLinkMetadata?,
@@ -66,7 +66,7 @@ extension LinkPresentationView {
         self.placeholder = placeholder()
     }
     
-    @inlinable
+    // @inlinable
     public init(metadata: LPLinkMetadata, @ViewBuilder placeholder: () -> Placeholder) {
         self.url = nil
         self.metadata = metadata
@@ -76,7 +76,7 @@ extension LinkPresentationView {
 }
 
 extension LinkPresentationView where Placeholder == EmptyView {
-    @inlinable
+    // @inlinable
     public init(
         url: URL,
         onMetadataFetchCompletion: ((Result<LPLinkMetadata, Error>) -> Void)? = nil
@@ -86,7 +86,7 @@ extension LinkPresentationView where Placeholder == EmptyView {
         }
     }
     
-    @inlinable
+    // @inlinable
     public init(
         url: URL,
         metadata: LPLinkMetadata?
@@ -94,7 +94,7 @@ extension LinkPresentationView where Placeholder == EmptyView {
         self.init(url: url, metadata: metadata, placeholder: { EmptyView() })
     }
     
-    @inlinable
+    // @inlinable
     public init(metadata: LPLinkMetadata) {
         self.init(metadata: metadata) {
             EmptyView()
@@ -110,36 +110,36 @@ extension LinkPresentationView {
 
 // MARK: - Implementation
 
-@usableFromInline
+// @usableFromInline
 struct _LinkPresentationView<Placeholder: View>: Identifiable, View {
-    @usableFromInline
+    // @usableFromInline
     @Environment(\.handleLocalizedError) var handleLocalizedError
-    @usableFromInline
+    // @usableFromInline
     @_UniqueKeyedViewCache(for: Self.self) var cache
     
     let url: URL?
-    @usableFromInline
+    // @usableFromInline
     let metadata: LPLinkMetadata?
-    @usableFromInline
+    // @usableFromInline
     let onMetadataFetchCompletion: ((Result<LPLinkMetadata, Error>) -> Void)?
-    @usableFromInline
+    // @usableFromInline
     let placeholder: Placeholder
     
-    @usableFromInline
+    // @usableFromInline
     var disableMetadataFetch: Bool
     
     #if !os(tvOS)
-    @usableFromInline
+    // @usableFromInline
     @State var metadataProvider: LPMetadataProvider?
     #endif
-    @usableFromInline
+    // @usableFromInline
     @State var isFetchingMetadata: Bool = false
-    @usableFromInline
+    // @usableFromInline
     @State var fetchedMetadata: LPLinkMetadata?
-    @usableFromInline
+    // @usableFromInline
     @State var proposedMinHeight: CGFloat?
     
-    @usableFromInline
+    // @usableFromInline
     var id: some Hashable {
         url ?? metadata?.originalURL
     }
@@ -148,7 +148,7 @@ struct _LinkPresentationView<Placeholder: View>: Identifiable, View {
         placeholder is EmptyView ? false : (metadata ?? fetchedMetadata) == nil
     }
     
-    @usableFromInline
+    // @usableFromInline
     var body: some View {
         ZStack {
             _LPLinkViewRepresentable<Placeholder>(
@@ -173,7 +173,7 @@ struct _LinkPresentationView<Placeholder: View>: Identifiable, View {
     }
     
     #if !os(tvOS)
-    @usableFromInline
+    // @usableFromInline
     func fetchMetadata() {
         guard !disableMetadataFetch else {
             return
@@ -224,25 +224,25 @@ struct _LinkPresentationView<Placeholder: View>: Identifiable, View {
         }
     }
     #else
-    @usableFromInline
+    // @usableFromInline
     func fetchMetadata() {
         
     }
     #endif
 }
 
-@usableFromInline
+// @usableFromInline
 struct _LPLinkViewRepresentable<Placeholder: View>: AppKitOrUIKitViewRepresentable, Equatable {
     public typealias AppKitOrUIKitViewType = MutableAppKitOrUIKitViewWrapper<LPLinkView>
     
-    @usableFromInline
+    // @usableFromInline
     var url: URL?
-    @usableFromInline
+    // @usableFromInline
     var metadata: LPLinkMetadata?
-    @usableFromInline
+    // @usableFromInline
     @Binding var proposedMinHeight: CGFloat?
     
-    @usableFromInline
+    // @usableFromInline
     init(
         url: URL?,
         metadata: LPLinkMetadata?,
@@ -253,7 +253,7 @@ struct _LPLinkViewRepresentable<Placeholder: View>: AppKitOrUIKitViewRepresentab
         self._proposedMinHeight = proposedMinHeight
     }
     
-    @usableFromInline
+    // @usableFromInline
     func makeAppKitOrUIKitView(context: Context) -> AppKitOrUIKitViewType {
         DispatchQueue.main.async {
             self.proposedMinHeight = nil
@@ -270,7 +270,7 @@ struct _LPLinkViewRepresentable<Placeholder: View>: AppKitOrUIKitViewRepresentab
         }
     }
     
-    @usableFromInline
+    // @usableFromInline
     func updateAppKitOrUIKitView(_ view: AppKitOrUIKitViewType, context: Context) {
         if let metadata = metadata {
             let wasMetadataPresent = view.base?.metadata.title != nil
@@ -305,7 +305,7 @@ struct _LPLinkViewRepresentable<Placeholder: View>: AppKitOrUIKitViewRepresentab
         }
     }
     
-    @usableFromInline
+    // @usableFromInline
     static func == (lhs: Self, rhs: Self) -> Bool {
         guard lhs.proposedMinHeight == rhs.proposedMinHeight else {
             return false

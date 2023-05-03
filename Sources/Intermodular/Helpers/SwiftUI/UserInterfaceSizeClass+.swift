@@ -18,7 +18,7 @@ extension View {
     @available(OSX, unavailable)
     @available(tvOS, unavailable)
     @available(watchOS, unavailable)
-    @inlinable
+    // @inlinable
     public func padding(
         _ edges: Edge.Set,
         _ length: CGFloat? = nil,

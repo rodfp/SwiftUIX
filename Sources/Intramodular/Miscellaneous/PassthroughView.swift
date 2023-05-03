@@ -7,20 +7,20 @@ import Swift
 import SwiftUI
 
 public struct PassthroughView<Content: View>: _opaque_View, View {
-    @usableFromInline
+    // @usableFromInline
     let content: Content
     
-    @inlinable
+    // @inlinable
     public init(content: Content) {
         self.content = content
     }
     
-    @inlinable
+    // @inlinable
     public init(@ViewBuilder content: () -> Content) {
         self.content = content()
     }
     
-    @inlinable
+    // @inlinable
     public var body: some View {
         content
     }

@@ -6,7 +6,7 @@ import Swift
 import SwiftUI
 
 @_spi(Internal)
-@inlinable
+// @inlinable
 public func _assignIfNotEqual<Value: Equatable>(
     _ value: Value,
     to destination: inout Value
@@ -17,7 +17,7 @@ public func _assignIfNotEqual<Value: Equatable>(
 }
 
 @_spi(Internal)
-@inlinable
+// @inlinable
 public func _assignIfNotEqual<Value: Equatable>(
     _ value: Value,
     to destination: inout Any
@@ -32,7 +32,7 @@ public func _assignIfNotEqual<Value: Equatable>(
 }
 
 @_spi(Internal)
-@inlinable
+// @inlinable
 public func _assignIfNotEqual<Value: Equatable>(
     _ value: Value,
     to destination: inout Any?

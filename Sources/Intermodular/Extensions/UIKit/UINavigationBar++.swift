@@ -8,7 +8,7 @@ import Swift
 import UIKit
 
 extension UINavigationBar {
-    @inlinable
+    // @inlinable
     var isDefaultTransparent: Bool {
         get {
             return true

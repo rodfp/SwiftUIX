@@ -11,7 +11,7 @@ public struct EnvironmentValueAccessView<Value, Content: View>: View {
     private let keyPath: KeyPath<EnvironmentValues, Value>
     private let content: (Value) -> Content
     
-    @usableFromInline
+    // @usableFromInline
     @Environment var environmentValue: Value
     
     public init(
@@ -36,14 +36,14 @@ open class DefaultEnvironmentKey<Value>: EnvironmentKey {
 }
 
 extension View {
-    @inlinable
+    // @inlinable
     public func environment(_ newEnvironment: EnvironmentValues) -> some View {
         transformEnvironment(\.self) { environment in
             environment = newEnvironment
         }
     }
     
-    @inlinable
+    // @inlinable
     public func managedObjectContext(_ managedObjectContext: NSManagedObjectContext) -> some View {
         environment(\.managedObjectContext, managedObjectContext)
     }

@@ -16,17 +16,17 @@ public protocol _opaque_View {
 // MARK: - Implementation
 
 extension _opaque_View where Self: View {
-    @inlinable
+    // @inlinable
     public func _opaque_environmentObject<B: ObservableObject>(_ bindable: B) -> _opaque_View {
         PassthroughView(content: environmentObject(bindable))
     }
 
-    @inlinable
+    // @inlinable
     public func _opaque_getViewName() -> AnyHashable? {
         nil
     }
     
-    @inlinable
+    // @inlinable
     public func eraseToAnyView() -> AnyView {
         .init(self)
     }

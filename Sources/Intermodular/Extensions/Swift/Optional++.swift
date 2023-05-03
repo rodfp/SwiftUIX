@@ -10,7 +10,7 @@ extension Optional {
     /// passing the unwrapped value as a parameter.
     ///
     /// Use the `map` method with a closure that returns a non-optional view.
-    @inlinable
+    // @inlinable
     public func map<V: View>(@ViewBuilder _ transform: (Wrapped) throws -> V) rethrows -> V? {
         if let wrapped = self {
             return try transform(wrapped)
@@ -23,7 +23,7 @@ extension Optional {
     /// passing the unwrapped value as a parameter.
     ///
     /// Use the `flatMap` method with a closure that returns an optional view.
-    @inlinable
+    // @inlinable
     public func flatMap<V: View>(@ViewBuilder _ transform: (Wrapped) throws -> V?) rethrows -> V? {
         if let wrapped = self {
             return try transform(wrapped)
@@ -34,7 +34,7 @@ extension Optional {
 }
 
 extension Optional where Wrapped: View {
-    @inlinable
+    // @inlinable
     public static func ?? <V: View>(lhs: Self, rhs: @autoclosure () -> V) -> _ConditionalContent<Self, V> {
         if let wrapped = lhs {
             return ViewBuilder.buildEither(first: wrapped)

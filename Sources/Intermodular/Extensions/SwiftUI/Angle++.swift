@@ -6,32 +6,32 @@ import Swift
 import SwiftUI
 
 extension Angle {
-    @inlinable
+    // @inlinable
     public static var pi: Angle {
         return .init(radians: Double.pi)
     }
     
-    @inlinable
+    // @inlinable
     public func remainder(dividingBy other: Angle) -> Angle   {
         .init(radians: radians.remainder(dividingBy: other.radians))
     }
     
-    @inlinable
+    // @inlinable
     public init(degrees: CGFloat) {
         self.init(degrees: Double(degrees))
     }
     
-    @inlinable
+    // @inlinable
     public init(degrees: Int) {
         self.init(degrees: Double(degrees))
     }
     
-    @inlinable
+    // @inlinable
     public init(radians: CGFloat) {
         self.init(radians: Double(radians))
     }
     
-    @inlinable
+    // @inlinable
     public init(radians: Int) {
         self.init(radians: Double(radians))
     }

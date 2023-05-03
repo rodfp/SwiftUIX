@@ -12,21 +12,21 @@ public protocol _ViewListMaker {
 // MARK: - Conformances
 
 extension EmptyView: _ViewListMaker {
-    @inlinable
+    // @inlinable
     public func makeViewList() -> [AnyView] {
         []
     }
 }
 
 extension ForEach: _ViewListMaker where Content: View {
-    @inlinable
+    // @inlinable
     public func makeViewList() -> [AnyView] {
         data.map({ self.content($0).eraseToAnyView() })
     }
 }
 
 extension TupleView: _ViewListMaker {
-    @inlinable
+    // @inlinable
     public func makeViewList() -> [AnyView] {
         Mirror(reflecting: value).children.map({ $0.value as! AnyView }) 
     }

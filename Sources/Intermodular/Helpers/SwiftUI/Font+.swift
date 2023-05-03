@@ -12,7 +12,7 @@ extension Text {
     ///   - font: The default font to use in this view.
     ///   - weight: The default font weight to use in this view.
     /// - Returns: A view with the default font set to the value you supply.
-    @inlinable
+    // @inlinable
     public func font(_ font: Font, weight: Font.Weight?) -> Text {
         if let weight {
             return self.font(font.weight(weight))
@@ -29,7 +29,7 @@ extension View {
     ///   - font: The default font to use in this view.
     ///   - weight: The default font weight to use in this view.
     /// - Returns: A view with the default font set to the value you supply.
-    @inlinable
+    // @inlinable
     @ViewBuilder
     public func font(_ font: Font, weight: Font.Weight?) -> some View {
         if let weight {

@@ -8,7 +8,7 @@ import SwiftUI
 #if os(iOS) || os(tvOS) || targetEnvironment(macCatalyst)
 
 extension View {
-    @inlinable
+    // @inlinable
     public func _configureUINavigationController(
         _ configure: @escaping (UINavigationController) -> Void
     ) -> some View {
@@ -31,7 +31,7 @@ extension View {
         }
     }
     
-    @inlinable
+    // @inlinable
     public func _configureUINavigationBar(
         _ configure: @escaping (UINavigationBar) -> Void
     ) -> some View {
@@ -49,7 +49,7 @@ extension View {
     ///
     /// - Parameters:
     ///     - color: The color to use for the navigation bar.
-    @inlinable
+    // @inlinable
     public func navigationBarColor(_ color: Color) -> some View {
         _configureUINavigationBar { navigationBar in
             navigationBar.backgroundColor = color.toUIColor()
@@ -64,14 +64,14 @@ extension View {
     ///
     /// - Parameters:
     ///     - isTranslucent: A Boolean value that indicates whether the navigation bar is translucent.
-    @inlinable
+    // @inlinable
     public func navigationBarTranslucent(_ translucent: Bool) -> some View {
         _configureUINavigationBar { navigationBar in
             navigationBar.isTranslucent = translucent
         }
     }
     
-    @inlinable
+    // @inlinable
     @available(iOS, deprecated: 13.0, renamed: "navigationBarTranslucent(_:)")
     public func navigationBarIsTranslucent(_ isTranslucent: Bool) -> some View {
         navigationBarTranslucent(isTranslucent)
@@ -84,14 +84,14 @@ extension View {
     ///
     /// - Parameters:
     ///     - isTransparent: A Boolean value that indicates whether the navigation bar is transparent.
-    @inlinable
+    // @inlinable
     public func navigationBarTransparent(_ transparent: Bool) -> some View {
         _configureUINavigationBar { navigationBar in
             navigationBar.isDefaultTransparent = transparent
         }
     }
     
-    @inlinable
+    // @inlinable
     @available(iOS, deprecated: 13.0, renamed: "navigationBarTransparent(_:)")
     public func navigationBarIsTransparent(_ isTransparent: Bool) -> some View {
         navigationBarTransparent(isTransparent)

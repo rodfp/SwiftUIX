@@ -110,9 +110,9 @@ extension ModalPresentationStyle {
 }
 
 extension ModalPresentationStyle {
-    @usableFromInline
+    // @usableFromInline
     struct EnvironmentKey: SwiftUI.EnvironmentKey {
-        @usableFromInline
+        // @usableFromInline
         static let defaultValue: ModalPresentationStyle = .automatic
     }
 }

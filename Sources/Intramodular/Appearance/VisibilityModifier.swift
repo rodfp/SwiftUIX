@@ -7,15 +7,15 @@ import SwiftUI
 
 /// A modifier that controls a view's visibility.
 public struct _VisibilityModifier: ViewModifier {
-    @usableFromInline
+    // @usableFromInline
     let isVisible: Bool
     
-    @usableFromInline
+    // @usableFromInline
     init(isVisible: Bool) {
         self.isVisible = isVisible
     }
     
-    @inlinable
+    // @inlinable
     public func body(content: Content) -> some View {
         content.opacity(isVisible ? 1 : 0)
     }
@@ -27,7 +27,7 @@ extension View {
     /// Sets a view's visibility.
     ///
     /// The view still retains its frame.
-    @inlinable
+    // @inlinable
     public func visible(_ isVisible: Bool = true) -> some View {
         modifier(_VisibilityModifier(isVisible: isVisible))
     }
@@ -35,7 +35,7 @@ extension View {
     /// Sets a view's visibility.
     ///
     /// The view still retains its frame.
-    @inlinable
+    // @inlinable
     public func visible(_ isVisible: Bool, animation: Animation?) -> some View {
         modifier(_VisibilityModifier(isVisible: isVisible))
             .animation(animation, value: isVisible)

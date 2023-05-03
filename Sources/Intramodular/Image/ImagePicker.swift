@@ -138,7 +138,7 @@ extension ImagePicker {
 // MARK: - Helpers
 
 extension UIImage {
-    @inlinable
+    // @inlinable
     func data(using encoding: Image.Encoding) -> Data? {
         switch encoding {
             case .png:

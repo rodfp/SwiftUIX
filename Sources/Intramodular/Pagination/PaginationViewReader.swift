@@ -81,7 +81,7 @@ extension PaginationViewProxy {
 }
 
 extension EnvironmentValues {
-    @usableFromInline
+    // @usableFromInline
     var _paginationViewProxy: Binding<PaginationViewProxy>? {
         get {
             self[PaginationViewProxy.EnvironmentKey.self]
